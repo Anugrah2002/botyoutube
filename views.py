@@ -16,7 +16,7 @@ from uploadfiletoheroku import *
 
 def checktime():
     # fetchdata=requests.get('http:/ytserver.eu-gb.cf.appdomain.cloud/entertainx/')
-    fetchdata=requests.get('https://youtuberestframework.eu-gb.cf.appdomain.cloud/entertainx/')
+    fetchdata=requests.get('https://ytserver.eu-gb.cf.appdomain.cloud/entertainx/')
     data=fetchdata.json()
     # print(data['nextrandom'])
     nextran= datetime.datetime.strptime(data['nextrandom'],"%Y-%m-%dT%H:%M:%SZ")
@@ -28,7 +28,7 @@ def checktime():
     print(datime)
     dateee=datetime.datetime.strptime(datime,"%Y-%m-%d %H:%M:%S")
 
-    if nextran < dateee  or True :
+    if nextran < dateee:
        print("We will post video")
        requestVideo()
     else:
@@ -39,7 +39,7 @@ def checktime():
 
 def requestVideo():
     try:       
-        r=requests.get('https://youtuberestframework.eu-gb.cf.appdomain.cloud/gettitle/')
+        r=requests.get('https://ytserver.eu-gb.cf.appdomain.cloud/gettitle/')
         print(r)
 
         title=(r.json()['title'])
@@ -47,16 +47,16 @@ def requestVideo():
         content=(r.json()['content'])
         summary=(r.json()['summary'])
         if title == 0 or title is None or content is None or content == '':
-            print("All Posted Already")
+            print("Content or title is either blank or incorrect")
             exit()
         
-        #Replacing space with hiphens to resolve filepath issue in linux
-        if title is not None:
-            title.replace(' ','-')
+        # #Replacing space with hiphens to resolve filepath issue in linux
+        # if title is not None:
+        #     title.replace(' ','-')
 
         newYTtitle = YTtitle
-        newYTtitle = newYTtitle.replace(' ','-')
-        p = makeVideo(newYTtitle+'-hd',content)
+        # newYTtitle = newYTtitle.replace(' ','-')
+        p = makeVideo(newYTtitle+' hd',content)
 
         if p =='GTTS ERR':
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset"))
