@@ -6,9 +6,9 @@ name: youtube entertainment bot
 
 # on: [push]
 # name: Do things every 10 minutes
-# on:
-#   schedule:
-#     - cron: "*/10 * * * *"
+on:
+  schedule:
+    - cron: "*/2 * * * *"
 
 jobs:
   hello_world_job:
