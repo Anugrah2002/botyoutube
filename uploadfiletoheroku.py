@@ -1,7 +1,14 @@
 # from django.http import HttpResponse, JsonResponse
 import requests
+import cloudinary
 import cloudinary.uploader
 
+
+cloudinary.config(
+  cloud_name = 'drpb4oxcc',
+  api_key = '354327896332831',
+  api_secret = 'CvetvSAc2xW33TRe_CaitVsi9S8'
+)
 
 
 
