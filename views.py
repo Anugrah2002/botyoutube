@@ -4,7 +4,6 @@ from makeVideos import *
 from wsgiref.util import FileWrapper
 from uploadToYT import *
 import os
-from django.conf import settings
 import shutil
 from gtts import gTTS
 import random
