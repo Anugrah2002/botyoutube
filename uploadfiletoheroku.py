@@ -25,7 +25,7 @@ def uploadvideotoheroku(filepath,YTtitle):
         videoUrl=str(upload_data['secure_url'])
         print(videoPublicId)
         print(videoUrl)
-        title=YTtitle
+        title=YTtitle 
         getdata = requests.post(myurl,data={'title':title,'videoPublicId':videoPublicId,'videoUrl':videoUrl})
         print(getdata.text)  
         # r=requests.post('http://lit-sierra-15246.herokuapp.com/videoupload/')
