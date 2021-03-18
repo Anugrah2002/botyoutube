@@ -17,7 +17,7 @@ jobs:
     steps:
     - name: Successful
       id: hello
-      uses: anugrah2002/botyoutube@master
+      uses: mashuk999/botyoutube@master
 
 # name: Do things every 10 minutes
 # on:
