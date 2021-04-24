@@ -6,7 +6,8 @@ from django.conf import settings
 import urllib.request
 from gtts import gTTS,tts
 import shutil
-from moviepy.editor import AudioFileClip, VideoFileClip,CompositeAudioClip
+from moviepy.editor import AudioFileClip, VideoFileClip,CompositeAudioClip, vfx.mask_color, CompositeVideoClip
+
 import settings
 
 
@@ -141,6 +142,13 @@ def addAudioToVideo(name):
         # videoclip.audio = new_audioclip
         videoclip = videoclip.subclip(0, audiofile.duration)
         videoclip = videoclip.speedx(factor=1.1)
+
+        #Adding Anchor
+        clip = VideoFileClip('./greenscreen.mp4')
+        masked_clip = clip.fx(vfx.mask_color, color=[109, 246, 16], thr=100, s=5)
+        masked_clip = masked_clip.resize(videoclip.size).set_pos(('center', 'bottom'))
+        final_clip = CompositeVideoClip([ videoclip, masked_clip ])
+        
         # videoclip = videoclip.fx(speedx, 1.3)
         os.chdir(os.path.join(settings.BASE_DIR, ""))
         videoclip.write_videofile("final"+".mp4")
