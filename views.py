@@ -27,7 +27,7 @@ def checktime():
     print(datime)
     dateee=datetime.datetime.strptime(datime,"%Y-%m-%d %H:%M:%S")
 
-    if nextran < dateee:
+    if nextran < dateee or True:
        print("We will post video")
        requestVideo()
     else:
