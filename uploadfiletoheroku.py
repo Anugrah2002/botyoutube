@@ -19,7 +19,7 @@ def uploadvideotoheroku(filepath,YTtitle):
         # filepath = filepath.replace(' ','\ ')
         filepath="final.mp4"
         print(filepath)
-        myurl = 'http://ytserver.eu-gb.cf.appdomain.cloud/news/videouploadwithcloudinary/'
+        myurl = 'http://ytserver.eu-gb.cf.appdomain.cloud/news/savevideo/'
         upload_data = cloudinary.uploader.upload_large(filepath)
         videoPublicId=str(upload_data['public_id'])
         videoUrl=str(upload_data['secure_url'])
