@@ -14,7 +14,7 @@ from uploadfiletoheroku import *
 
 
 def checktime():
-    fetchdata=requests.get('http://ytserver.eu-gb.cf.appdomain.cloud/news/entertainx/')
+    fetchdata=requests.get('http://ytserver.eu-gb.cf.appdomain.cloud/news/nextrandom/')
     # fetchdata=requests.get('https://youtuberestframework.eu-gb.cf.appdomain.cloud/entertainx/')
     data=fetchdata.json()
     # print(data['nextrandom'])
