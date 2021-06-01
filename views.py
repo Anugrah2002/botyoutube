@@ -14,19 +14,13 @@ from uploadfiletoheroku import *
 
 
 def checktime():
-    fetchdata=requests.get('http://ytserver.eu-gb.cf.appdomain.cloud/news/entertainx/')
-    # fetchdata=requests.get('https://youtuberestframework.eu-gb.cf.appdomain.cloud/entertainx/')
+    fetchdata=requests.get('http://ytserver.eu-gb.cf.appdomain.cloud/news/nextrandom/')
     data=fetchdata.json()
-    # print(data['nextrandom'])
     nextran= datetime.datetime.strptime(data['nextrandom'],"%Y-%m-%dT%H:%M:%SZ")
     print(nextran)
-    # print(nextran)
-    # print(type(nextran))
-    # print(datetime.now)
     datime=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
     print(datime)
     dateee=datetime.datetime.strptime(datime,"%Y-%m-%d %H:%M:%S")
-
     if nextran < dateee:
        print("We will post video")
        requestVideo()
@@ -49,12 +43,8 @@ def requestVideo():
             print("Content or title is either blank or incorrect")
             exit()
         
-        # #Replacing space with hiphens to resolve filepath issue in linux
-        # if title is not None:
-        #     title.replace(' ','-')
 
         newYTtitle = YTtitle
-        # newYTtitle = newYTtitle.replace(' ','-')
         p = makeVideo(newYTtitle+' hd',content)
 
         if p =='GTTS ERR':
@@ -82,8 +72,5 @@ def requestVideo():
         print(e)
 
     
-
-
-
 
 checktime()
