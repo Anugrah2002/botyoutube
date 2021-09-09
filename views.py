@@ -53,7 +53,7 @@ def requestVideo():
         if p =='GTTS ERR':
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset"))
             print('3')
-            print('GTTS ERR')
+            return 'GTTS ERR'
             print('4')
 
         os.chdir(os.path.join(settings.BASE_DIR,''))
