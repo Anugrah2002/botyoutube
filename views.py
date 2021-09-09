@@ -31,8 +31,9 @@ def checktime():
 
 
 def requestVideo():
-    print('1')
+    
     try:       
+        print('1')
         r=requests.get('http://ytserver.eu-gb.cf.appdomain.cloud/news/gettitle/')
         print(r)
 
@@ -53,6 +54,7 @@ def requestVideo():
             shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset"))
             print('3')
             return HttpResponse('GTTS ERR')
+            print('4')
 
         os.chdir(os.path.join(settings.BASE_DIR,''))
 
