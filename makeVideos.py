@@ -55,8 +55,8 @@ def makeVideo(name,content):
         os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name)) 
         path = os.path.join(settings.BASE_DIR, r"dataset/"+name)
 
-        mean_height = 720
-        mean_width = 1280
+        mean_height = 1080
+        mean_width = 1920
 
         num_of_images = len(os.listdir('.')) 
 
