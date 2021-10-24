@@ -139,11 +139,12 @@ def addAudioToVideo(name):
         os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
         print(os.listdir())
         audiofile = AudioFileClip('audio.mp3')
+        audioFileDuration = audiofile.duration
         videoclip = VideoFileClip("mygeneratedvideo.mp4")
         audiofile = CompositeAudioClip([audiofile, bgAudio])
         videoclip = videoclip.set_audio(audiofile)
         # videoclip.audio = new_audioclip
-        videoclip = videoclip.subclip(0, audiofile.duration)
+        videoclip = videoclip.subclip(0, audioFileDuration)
         videoclip = videoclip.speedx(factor=1.1)
         # videoclip = videoclip.fx(speedx, 1.3)
         os.chdir(os.path.join(settings.BASE_DIR, ""))
