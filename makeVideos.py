@@ -7,6 +7,7 @@ import urllib.request
 from gtts import gTTS,tts
 import shutil
 from moviepy.editor import *
+from moviepy.audio.fx.multiply_volume import multiply_volume
 import settings
 
 
@@ -135,7 +136,7 @@ def addAudioToVideo(name):
     try:
         os.chdir(os.path.join(settings.BASE_DIR, r"RequiredFiles/"))
         bgAudio = AudioFileClip('bgAudioNews.mp3')
-        bgAudio = bgAudio.fx(volumex, 0.5)
+        bgAudio = bgAudio.fx(multiply_volume, 0.5)
         os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
         print(os.listdir())
         audiofile = AudioFileClip('audio.mp3')
