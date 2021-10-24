@@ -32,6 +32,7 @@ def replaceConflictsWords(content):
     #Replace Words which needs to be removed because of copyright or advertisement
 
     content = content.replace('विज्ञापन','')
+    content = content.replace('\n','')
 
     #All words replaced
 
