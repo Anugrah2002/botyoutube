@@ -19,7 +19,7 @@ def makeAudio(name,content):
             os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
             print(content)
             ttsG = gTTS(content)
-            ttsG.save('audio.mp3')
+            ttsG.save('audio.mp3',lang='hi')
         except tts.gTTSError as e:
             print(e)
             return False
