@@ -6,7 +6,7 @@ from django.conf import settings
 import urllib.request
 from gtts import gTTS,tts
 import shutil
-from moviepy.editor import AudioFileClip, VideoFileClip,CompositeAudioClip
+from moviepy.editor import *
 import settings
 
 
@@ -132,11 +132,14 @@ def generate_video(name):
         
 def addAudioToVideo(name):
     try:
+        os.chdir(os.path.join(settings.BASE_DIR, r"RequiredFiles/"))
+        bgAudio = AudioFileClip('bgAudioNews.mp3')
+        bgAudio = bgAudio.fx(volumex, 0.5)
         os.chdir(os.path.join(settings.BASE_DIR, r"dataset/"+name))
         print(os.listdir())
         audiofile = AudioFileClip('audio.mp3')
         videoclip = VideoFileClip("mygeneratedvideo.mp4")
-        #new_audioclip = CompositeAudioClip([audiofile])
+        audiofile = CompositeAudioClip([audiofile, bgAudio])
         videoclip = videoclip.set_audio(audiofile)
         # videoclip.audio = new_audioclip
         videoclip = videoclip.subclip(0, audiofile.duration)
