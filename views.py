@@ -28,7 +28,14 @@ def checktime():
         print("We will wait for minutes since it is time error")
 
 
+def replaceConflictsWords(content):
+    #Replace Words which needs to be removed because of copyright or advertisement
 
+    content = content.replace('विज्ञापन','')
+
+    #All words replaced
+
+    return content
 
 def requestVideo():
     
@@ -40,6 +47,7 @@ def requestVideo():
         title=(r.json()['title'])
         YTtitle=(r.json()['Ytitle'])
         content=(r.json()['content'])
+        content = replaceConflictsWords(content)
         summary=(r.json()['summary'])
         if title == 0 or title is None or content is None or content == '':
             print("Content or title is either blank or incorrect")
