@@ -2,6 +2,7 @@ FROM wlserver1/ytupload:latest
 RUN ls
 RUN pwd
 ADD ./ /
+RUN apt-get update
 RUN apt-get install firefox -y
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 RUN git clone https://github.com/ContentAutomation/YouTubeUploader.git
