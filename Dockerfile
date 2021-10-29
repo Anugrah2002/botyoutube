@@ -3,6 +3,6 @@ ADD ./ /
 RUN ls
 RUN chmod +x /entrypoint.sh
 RUN /entrypoint.sh
-# RUN pip3 install cloudinary 
-# RUN cd YouTubeUploader
-# RUN python3 views.py
+RUN pip3 install cloudinary 
+RUN cd YouTubeUploader
+RUN python3 views.py
