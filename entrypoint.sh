@@ -22,3 +22,4 @@ chmod +x /usr/local/bin/docker-compose
 ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 docker-compose --version
 docker-compose up -ds
+which poetry
