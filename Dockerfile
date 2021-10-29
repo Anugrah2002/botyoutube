@@ -7,6 +7,7 @@ RUN apt-get install firefox -y
 RUN apt-get install curl -y
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python3 -
 RUN . $HOME/.poetry/env
+ENV PATH="/root/.poetry/bin:$PATH"
 RUN git clone https://github.com/ContentAutomation/YouTubeUploader.git
 RUN cd YouTubeUploader
 RUN poetry install
