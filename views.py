@@ -76,7 +76,7 @@ def requestVideo():
         command = r'cp "' + p + r'" /YouTubeUploader/uploads/'
         os.system(command)
         os.chdir(r'/YouTubeUploader/')
-        command = r'/root/.poetry/bin/poetry run python3 main.py -l login.json -t ' + newYTtitle + r' -d ' + newYTtitle + ' ' + r'/uploads/final.mp4'
+        command = r'/root/.poetry/bin/poetry run python3 main.py -l login.json -t "' + newYTtitle + r'" -d "' + newYTtitle + '" ' + r'/uploads/final.mp4'
         os.system(command) #comment this to stop uploading to youtube
         # shutil.rmtree(os.path.join(settings.BASE_DIR, r"dataset")) # comment this to stop removing the file from system
         print('Success')
