@@ -11,4 +11,3 @@ cd YouTubeUploader
 poetry install
 cd /
 ls
-docker-compose up -d
