@@ -5,5 +5,4 @@ RUN chmod +x /entrypoint.sh
 RUN /entrypoint.sh
 RUN pip3 install cloudinary 
 RUN cd YouTubeUploader
-RUN docker-compose up -d
 RUN python3 views.py
